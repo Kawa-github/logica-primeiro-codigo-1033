@@ -48,8 +48,14 @@ const contatosEditados = contatos.map((item, index) => {
     return item.nome === 'Marcos3' ? {
         ...item,
         numero: 123
-    } : item
+    } : item = [{
+        nome: 'OKOK', 
+        sobrenome: 'OK', 
+        numero: 123456782 
+      }];
 })
+
+console.log(contatosEditados)
 
 // -- FILTER
 const contatosFiltrados = contatos.filter((item, index) => {
