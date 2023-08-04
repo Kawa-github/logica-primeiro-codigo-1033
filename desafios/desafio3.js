@@ -3,20 +3,8 @@
 // const parceirosExemplo = [ { parceirosId: '12345678901', nome: 'Carlos Antonio' }, { parceirosId: '12345678901234', nome: 'Empresa Xpto Ltda.' }, { parceirosId: '12345678901', nome: 'Informática' }, { parceirosId: '12345678901235', nome: 'Construtora' }, ]
 
 // o resultado final desse agrupamento deverá ser algo como:
-
-const parceirosAgrupados = { 
-        PF: [ 
-                { parceirosId: '12345678901', nome: 'Carlos Antonio' }, 
-                { parceirosId: '12345678901', nome: 'Informática' }, 
-            ], 
-        PJ: [ 
-                { parceirosId: '12345678901234', nome: 'Empresa Xpto Ltda.' }, 
-                { parceirosId: '12345678901235', nome: 'Construtora' },
-            ] 
-        }
         
 // // utilize a seguinte variável:
-let result = {}
         
 const listaParceiros = [
     {"parceirosId":"19660156627897","nome":"Fernanda Santos"},
@@ -31,19 +19,16 @@ const listaParceiros = [
     {"parceirosId":"84297701780","nome":"Carlos Oliveira"}
 ];
 
+const parceirosAgrupados = { 
+    PF: [], 
+    PJ: []
+};
 
-const listaFormat = listaParceiros.forEach((item, index) =>{
-    let parceiros = (listaParceiros[index].parceirosId.length == "11") ? "PF" : "PJ"
-    // console.log(parceiros)
-})
+listaParceiros.forEach((item) => {
+    const { parceirosId, nome } = item
+    const tipo = parceirosId.length === 11 ? 'PF' : 'PJ'
 
-console.log(listaFormat)
+    parceirosAgrupados[tipo].push({ parceirosId, nome })
+});
 
-
-// for(index in listaParceiros){
-
-//     let result
-//     // parceiros = ()
-// }
-
-// Dicas, utilize o conteúdo aprendido na aula de hoje. // Leve em conta o parceirosId para fazer a diferenciação.
+console.log(parceirosAgrupados)
