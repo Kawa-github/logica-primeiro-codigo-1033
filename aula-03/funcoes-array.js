@@ -55,15 +55,20 @@ const contatosEditados = contatos.map((item, index) => {
       }];
 })
 
-console.log(contatosEditados)
+
+// console.log(contatosEditados)
 
 // -- FILTER
-const contatosFiltrados = contatos.filter((item, index) => {
-    const { sobrenome } = item 
-    return sobrenome === 'Lins' || sobrenome === 'Lins2' // true / false
-})
+function teste(sobrenomeP){
+    const contatosFiltrados = contatos.filter((item, index) => {
+        const { sobrenome } = item 
+        return sobrenome === sobrenomeP || sobrenome === sobrenomeP // true / false
+    })
+    console.log(contatosFiltrados)
+}
 
-// console.log(contatosFiltrados)
+teste("Lins")
+
 // -- REDUCE
 
 // const numeros = [1,2,3] // 6
