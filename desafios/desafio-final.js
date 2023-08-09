@@ -34,16 +34,44 @@ console.log(turmas);
 //     ativo, boolean // padrão true
 
 const alunos = []
-function criarAluno(nome,sobrenome,email,turma,nascimento,notas,ativo = true){
+function criarAluno(nome,sobrenome,email,turma,nascimento,nota,ativo = true){
+    // let status = true
+    
     const aluno = {
         nome: nome,
         sobrenome: sobrenome,
         email: email,
         turma: turma,
         nascimento: nascimento,
-        notas: notas,
-        ativo: (ativo == 1) ? true : false
-    }
+        ativo: (ativo == 1) ? true : false,
+        notas: [
+            {nota: nota },
+            {nota: nota },
+            {nota: nota },
+        ],
+        calcularMedia: function (){
+            const somarNotas = this.notas.reduce((acc, current) => {
+                return acc + current.nota
+            }, 0)
+
+            // const media = somarNotas / 6
+            // console.log("AA", media)
+        },
+      }
+
+      aluno.calcularMedia()
+
+
+        // status: function (){
+        //     if(status){
+        //         ativo = 1
+        //         console.log("aluno ativado")
+        //     }else{
+        //         ativo = 0
+        //         console.log("aluno desativado")
+        //     }
+        //      status = !status
+        // }
     alunos.push(aluno)
 }
 
@@ -56,6 +84,7 @@ criarAluno(
     "5,10,3,7",
     1
 )
+
 
 criarAluno(
     "Joao",
@@ -77,6 +106,16 @@ criarAluno(
     1
 )
 
+criarAluno(
+    "Lucas",
+    "Moura",
+    "lulu@gmail.com",
+    1,
+    "01/07/2004",
+    "5,10,3,7",
+    1
+)
+
 console.log(alunos)
 
 function removerAluno(alunos, prop, value) {
@@ -91,8 +130,14 @@ function buscarAluno(nomeAluno){
         const { nome } = item
         return nome === nomeAluno
     })
-    console.log(busca)
+    // console.log(busca)
 }
 
 buscarAluno("Pedro")
+
+const listarAlunosAtivos = alunos.filter((i) => i.ativo > 0)
+console.log("Alunos Ativos:", listarAlunosAtivos)
+
+const listarAlunosInativos = alunos.filter((i) => i.ativo < 1)
+console.log("Alunos Inativos:", listarAlunosInativos)
 
