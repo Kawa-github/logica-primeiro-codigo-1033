@@ -15,6 +15,8 @@ produtos
     let letraProduto = produto.charAt(0).toUpperCase();
     let nomeProd = produto.slice(1);
 
+    console.log('nomeprod',nomeProd)
+
     let valor = parseFloat(item.split('valor')[1].split('=')[0]);
 
     let cupom = item.split('=');
