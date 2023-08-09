@@ -54,9 +54,6 @@ switch (idade) {
 }
 
 const aluno = {
-    nome: 'Mateus',
-    turma: 1033,
-    corte: 6,
     notas: [
         { materia: 'Lógica', nota: 8 },
         { materia: 'Redes', nota: 1 },
@@ -71,12 +68,18 @@ const aluno = {
         const media = somaNotas / this.notas.length  
         if(media >= 6){
             return {
-                media,
-                status: true
+            nome: 'Mateus',
+            turma: 1033,
+            corte: 6,
+            media,
+            status: true
             }
         }
 
         return {
+            nome: 'Mateus',
+            turma: 1033,
+            corte: 6,
             media,
             status: false
         }
