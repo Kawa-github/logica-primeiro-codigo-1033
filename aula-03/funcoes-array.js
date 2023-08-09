@@ -64,7 +64,7 @@ function teste(sobrenomeP){
         const { sobrenome } = item 
         return sobrenome === sobrenomeP || sobrenome === sobrenomeP // true / false
     })
-    console.log(contatosFiltrados)
+    // console.log(contatosFiltrados)
 }
 
 teste("Lins")
@@ -84,10 +84,15 @@ teste("Lins")
 // Remover duplicidades 
 const numeros = [1,2,3,1,5,5,6] // [1,2,3,5,6]
 
-// const numerosSerializado = numeros.reduce((acc, current) => {
-//     return acc.includes(current) ? acc : [...acc, current]
-// }, [])
+const numerosSerializado = numeros.reduce((acc, current) => {
+    console.log("acc" ,acc)
+    console.log("current" ,current)
 
+    
+    return acc.includes(current) ? acc : [...acc, current]
+}, [])
+
+console.log(numerosSerializado)
 console.clear()
 // -- CONCACT
 // const numerosExtras = [7,8,9,10]
