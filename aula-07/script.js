@@ -6,10 +6,6 @@
 // Relacionamento 
 // Entidades: Turma e Aluno
 
-const turma = {
-    codigo: 0,
-    maximoDeAlunos: 0 
-}
 
 const turmas = []
 
@@ -20,7 +16,9 @@ const cadastrarTurma = ({codigo, maximoDeAlunos}) => {
     // const turmaEncontrada = turmas.filter(turma => turma.codigo === codigo).length
     const turmaEncontrada = turmas.find(turma => turma.codigo === codigo)
 
+    console.log(codigo)
     codigo = parseInt(codigo)
+    console.log(codigo)
     maximoDeAlunos = parseInt(maximoDeAlunos)
 
     if(!codigo || !maximoDeAlunos){
@@ -38,5 +36,9 @@ const cadastrarTurma = ({codigo, maximoDeAlunos}) => {
     return turmas
 }
 
-// console.log(turma)
+cadastrarTurma({codigo: 1, maximoDeAlunos: 5})
+cadastrarTurma({codigo: 1, maximoDeAlunos: 5}) 
+cadastrarTurma({codigo: 2, maximoDeAlunos: 7})
 console.log('SAÍDA', turmas)
+
+// console.log(turma)

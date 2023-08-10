@@ -27,7 +27,7 @@ try{
     }
     console.log('Não executa')
 }catch(erro){
-    console.log(erro)
+    console.log("dnkjadnsk",erro)
 }
 
 
