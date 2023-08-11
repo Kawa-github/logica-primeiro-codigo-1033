@@ -27,15 +27,16 @@ try {
     criarTurma(2, 8)
     criarTurma(7, 8)
     criarTurma(4, 8)
-    criarTurma(8, 8)
+    // criarTurma(8, 8)
     // criarTurma(3, 8)
     // criarTurma(8, 1)
     
-    console.log(turmas)
-    console.log("Turmas cadastradas com sucesso!")
-
 } catch (erro) {
     console.error(erro.message);
+}
+finally{
+    console.log(turmas)
+    console.log("Turmas cadastradas com sucesso!")
 }
 
 
@@ -52,14 +53,10 @@ function criarAluno(nome,sobrenome,email,turma,nascimento,notas,ativo = true){
     let dataFormatada = dia + '/' + mes + '/' + ano;
 
     const alunoRepetido = alunos.find(aluno => aluno.email === email)
-    // const validarEmail = alunos.filter(aluno => aluno.email.includes(".com"))
 
-    // if(!validarEmail){
-    //     throw new Error('Email invalido.')
-    // }
-
+    let nomeFormat = nome.charAt(0).toUpperCase() + nome.slice(1) 
     const aluno = {
-        nome: nome.charAt(0).toUpperCase() + nome.slice(1),
+        nome:  nomeFormat.trim(),
         sobrenome: sobrenome,
         email: email,
         turma: turma,
@@ -84,15 +81,21 @@ function criarAluno(nome,sobrenome,email,turma,nascimento,notas,ativo = true){
     if(alunoRepetido){
         throw new Error('Já existe um aluno com este e-mail.')
     }
+
+
+    if(!email.includes("@")){
+        throw new Error('Email inválido!')
+    }
+    
     
     aluno.calcularMedia()
     alunos.push(aluno)
 }
 
 criarAluno(
-    "kawa",
+    "       kawa       ",
     "Ribeiro",
-    "email@gmail.com",
+    "email@gmail.",
     3,
     "2003-11-03",
     [5,4,9,2],
@@ -100,7 +103,7 @@ criarAluno(
 )
 
 criarAluno(
-    "Raffa",
+    "Raffa                ",
     "Moreira",
     "emaill@gmail.com",
     5,
@@ -213,7 +216,7 @@ function gerarRelatorio() {
     })
 }
 
-gerarRelatorio()
+// gerarRelatorio()
 
 
 
